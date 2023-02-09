@@ -139,3 +139,23 @@ where
         ord
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn seq_val_trait() {
+        fn test<T: SeqValTrait>(v: T) {
+            let a = Seq::<T>::new(v);
+            let b = a.add(T::one());
+            let _c = b.sub(T::one());
+            let _dist = Seq::<T>::dist(&a, &b);
+            let _zero = Seq::<T>::zero();
+        }
+        test::<u8>(2);
+        test::<u16>(2);
+        test::<u32>(2);
+        test::<u64>(2);
+    }
+}
