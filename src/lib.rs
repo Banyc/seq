@@ -13,7 +13,7 @@ pub type Seq8 = Seq<u8>;
 pub type Seq16 = Seq<u16>;
 pub type Seq64 = Seq<u64>;
 
-pub trait SeqTrait:
+pub trait SeqValTrait:
     Copy
     + Eq
     + Ord
@@ -27,6 +27,10 @@ pub trait SeqTrait:
     + WrappingSub
 {
 }
+impl SeqValTrait for u8 {}
+impl SeqValTrait for u16 {}
+impl SeqValTrait for u32 {}
+impl SeqValTrait for u64 {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct Seq<T> {
