@@ -28,7 +28,7 @@ pub trait SeqTrait:
 {
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct Seq<T> {
     v: T,
 }
